@@ -1,0 +1,17 @@
+.searchWrap {
+  margin-left: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.text {
+  outline: none;
+  font-weight: bold;
+}
+
+.input {
+  width: 300px;
+  padding: 10px 12px;
+  border-radius: 8px;
+}

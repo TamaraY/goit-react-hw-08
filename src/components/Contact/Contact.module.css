@@ -1,0 +1,41 @@
+.item {
+  width: 350px;
+  border: 2px solid #261a2b;
+  display: flex;
+  align-items: baseline;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.contact {
+  padding: 10px;
+}
+
+.contactText {
+  margin: 0;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.btn {
+  margin-right: 10px;
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  transform: translate(0, -50%);
+
+  align-items: center;
+  justify-content: center;
+
+  border: 2px solid #261a2b;
+  background-color: #9793c6;
+
+  &:hover {
+    border: 2px solid #442d3f;
+    background-color: #716da6;
+    cursor: pointer;
+  }
+}
