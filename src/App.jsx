@@ -1,30 +1,24 @@
-import ContactForm from "./components/ContactForm/ContactForm";
-import ContactList from "./components/ContactList/ContactList";
-import SearchBox from "./components/SearchBox/SearchBox";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LoginPage from "./pages/LoginPage/LoginPage";
+import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
+import ContactsPage from "./pages/ContactsPage/ContactsPage";
+import HomePage from "./pages/HomePage/HomePage";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { fetchContacts } from "./redux/contactsOps";
-
-const App = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
-
+function App() {
   return (
-    <div>
-      <h1>Contact Book</h1>
-      <ContactForm />
-      <SearchBox />
-      <ContactList />
-      <ToastContainer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegistrationPage />} />
+        <Route
+          path="/contacts"
+          element={<PrivateRoute component={ContactsPage} />}
+        />
+      </Routes>
+    </BrowserRouter>
   );
-};
+}
 
 export default App;
