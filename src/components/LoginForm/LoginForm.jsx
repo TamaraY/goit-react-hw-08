@@ -74,7 +74,7 @@ const LoginForm = () => {
                 className={styles.btn}
                 disabled={isSubmitting}
               >
-                Login
+                Log In
               </button>
             </Form>
           </div>
