@@ -48,22 +48,48 @@ const RegistrationForm = () => {
           <div className={styles.regForm}>
             <Form>
               <div>
-                <label htmlFor="name">Name</label>
-                <Field type="text" name="name" />
-                <ErrorMessage name="name" component="div" />
+                <label className={styles.label}>
+                  <span>Name </span>
+                  <Field type="text" name="name" className={styles.input} />
+                  <ErrorMessage
+                    name="name"
+                    className={styles.input}
+                    component="p"
+                  />
+                </label>
               </div>
               <div>
-                <label htmlFor="email">Email</label>
-                <Field type="email" name="email" />
-                <ErrorMessage name="email" component="div" />
+                <label className={styles.label}>
+                  <span>Email</span>
+                  <Field type="email" name="email" className={styles.input} />
+                  <ErrorMessage
+                    name="email"
+                    className={styles.input}
+                    component="p"
+                  />
+                </label>
               </div>
               <div>
-                <label htmlFor="password">Password</label>
-                <Field type="password" name="password" />
-                <ErrorMessage name="password" component="div" />
+                <label className={styles.label}>
+                  <span>Password</span>
+                  <Field
+                    type="password"
+                    name="password"
+                    className={styles.input}
+                  />
+                  <ErrorMessage
+                    name="password"
+                    className={styles.input}
+                    component="p"
+                  />
+                </label>
               </div>
               {errors.server && <div>{errors.server}</div>}
-              <button type="submit" disabled={isSubmitting}>
+              <button
+                type="submit"
+                className={styles.btn}
+                disabled={isSubmitting}
+              >
                 Register
               </button>
             </Form>

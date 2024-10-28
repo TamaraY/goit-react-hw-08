@@ -20,17 +20,14 @@
 
 import { createSlice } from "@reduxjs/toolkit";
 
-// Ініціалізація початкового стану
 const initialState = {
-  // стан фільтрів
+  name: "",
 };
 
 const filtersSlice = createSlice({
   name: "filters",
   initialState,
-  reducers: {
-    // твої редюсери
-  },
+  reducers: {},
 });
 
 export const filtersReducer = filtersSlice.reducer;
