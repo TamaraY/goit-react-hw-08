@@ -54,9 +54,14 @@ const contactsSlice = createSlice({
   },
 });
 
+export const contactsReducer = contactsSlice.reducer;
+
 export const selectFilteredContacts = createSelector(
   [(state) => state.contacts.items, (state) => state.filters.name],
   (contacts, filterName) => {
+    if (!filterName) {
+      return contacts;
+    }
     return contacts.filter((contact) =>
       contact.name.toLowerCase().includes(filterName.toLowerCase())
     );
@@ -66,5 +71,3 @@ export const selectFilteredContacts = createSelector(
 export const selectContacts = (state) => state.contacts.items;
 export const selectLoading = (state) => state.contacts.loading;
 export const selectError = (state) => state.contacts.error;
-
-export default contactsSlice.reducer;

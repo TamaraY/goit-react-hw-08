@@ -1,0 +1,17 @@
+.formWrapp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.regForm {
+  padding: 10px;
+  width: 400px;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid;
+  box-shadow: 10px 5px 5px gray;
+  border-radius: 8px;
+  display: grid;
+  margin: 24px;
+}

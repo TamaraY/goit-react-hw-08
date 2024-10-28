@@ -1,19 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { register, login, logout } from "./operations";
-
-const initialState = {
-  user: { name: null, email: null },
-  token: null,
-  isLoggedIn: false,
-  isRefreshing: false,
-};
+import { register, login, logout, refreshUser } from "./operations";
 
 const authSlice = createSlice({
   name: "auth",
-  initialState,
-  reducers: {
-    // Додаткові редьюсери можна додати пізніше
+  initialState: {
+    user: { name: null, email: null },
+    token: null,
+    isLoggedIn: false,
+    isRefreshing: false,
   },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(register.fulfilled, (state, action) => {
@@ -30,8 +26,20 @@ const authSlice = createSlice({
         state.user = { name: null, email: null };
         state.token = null;
         state.isLoggedIn = false;
+        state.isRefreshing = false;
+      })
+      .addCase(refreshUser.fulfilled, (state, action) => {
+        state.user = action.payload;
+        state.isLoggedIn = true;
+        state.isRefreshing = false;
+      })
+      .addCase(refreshUser.pending, (state) => {
+        state.isRefreshing = true;
+      })
+      .addCase(refreshUser.rejected, (state) => {
+        state.isRefreshing = false;
       });
   },
 });
 
-export default authSlice.reducer;
+export const authReducer = authSlice.reducer;

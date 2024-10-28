@@ -1,0 +1,23 @@
+.headerNav {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-decoration: none;
+}
+
+.register {
+  display: flex;
+  gap: 15px;
+  justify-content: right;
+}
+
+.link {
+  color: black;
+  font-weight: bold;
+}
+
+.activeLink {
+  color: purple;
+  text-decoration: underline;
+}
