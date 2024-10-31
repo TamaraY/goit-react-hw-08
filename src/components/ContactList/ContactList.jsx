@@ -1,12 +1,10 @@
 import { useSelector } from "react-redux";
-import { selectFilteredContacts } from "../../redux/contacts/slice";
+import { selectFilteredContacts } from "../../redux/contacts/selectors"; // Оновлення імпорту
 import Contact from "../Contact/Contact";
-
 import style from "./ContactList.module.css";
 
 const ContactList = () => {
   const filteredContacts = useSelector(selectFilteredContacts);
-
   return (
     <ul className={style.list}>
       {filteredContacts.map((contact) => (
